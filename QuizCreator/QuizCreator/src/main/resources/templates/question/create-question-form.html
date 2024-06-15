@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Question</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Quiz Creator</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/AllQuestions}">List All Question</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/CreateDeleteQuestions}">Create/Delete Question</a>
+                </li>
+            </ul>
+            <div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home Page</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<form class="container my-5" action="#" th:action="@{/SaveQuestions}" th:object="${question}" method="post">
+    <h3>Add Question Form</h3>
+    <hr>
+    <div class="mb-3">
+        <label class="form-label">Question Title</label>
+        <input type="text" class="form-control" th:field="*{questionTitle}" >
+        <span th:if="${#fields.hasErrors('questionTitle')}" th:errors="*{questionTitle}" class="form-error"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Option 1</label>
+        <input type="text" class="form-control" th:field="*{option1}"  >
+        <span th:if="${#fields.hasErrors('option1')}" th:errors="*{option1}" class="form-error"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Option 2</label>
+        <input type="text" class="form-control" th:field="*{option2}" >
+        <span th:if="${#fields.hasErrors('option2')}" th:errors="*{option2}" class="form-error"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Option 3</label>
+        <input type="text" class="form-control" th:field="*{option3}" >
+        <span th:if="${#fields.hasErrors('option3')}" th:errors="*{option3}" class="form-error"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Option 4</label>
+        <input type="text" class="form-control" th:field="*{option4}" >
+        <span th:if="${#fields.hasErrors('option4')}" th:errors="*{option4}" class="form-error"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Right Answer</label>
+        <input type="text" class="form-control" th:field="*{rightAnswer}">
+        <span th:if="${#fields.hasErrors('rightAnswer')}" th:errors="*{rightAnswer}" class="form-error"></span>
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Difficulty Level</label>
+        <input type="text" class="form-control" th:field="*{difficultyLevel}" >
+        <span th:if="${#fields.hasErrors('difficultyLevel')}" th:errors="*{difficultyLevel}" class="form-error"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <input type="text" class="form-control" th:field="*{category}" >
+        <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="form-error"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+</body>
+</html>
