@@ -13,7 +13,7 @@ CREATE TABLE Question (
 );
 
 
-INSERT INTO Question (question_title, option1, option2, option3, option4, right_answer, difficulty_level, category)
+INSERT INTO Question (question_title, option1, option2, option3, option4, right_answer, difficulty_level, category) 
 VALUES
     ('What is a class in Java?', 'A function', 'An object', 'A data structure', 'A loop', 'An object', 'Easy', 'java'),
     ('What does OOP stand for?', 'Object-Oriented Programming', 'Object Ordering Process', 'Operating Overloaded Pointers', 'Order of Operations', 'Object-Oriented Programming', 'Easy', 'java'),
